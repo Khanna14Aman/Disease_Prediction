@@ -1,0 +1,24 @@
+.outerdiv {
+  margin: auto;
+  background-color: red;
+  margin-top: 5vh;
+  height: 8vh;
+  width: 60vw;
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+}
+.selectdiv {
+  height: 5vh;
+}
+.firstdiv {
+  width: 20vw;
+  display: flex;
+  justify-content: center;
+}
+.seconddiv {
+  width: 20vw;
+  /* background-color: blue; */
+  display: flex;
+  justify-content: center;
+}

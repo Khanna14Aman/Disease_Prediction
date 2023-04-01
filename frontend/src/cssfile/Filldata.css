@@ -1,0 +1,14 @@
+.navbar {
+  background-color: antiquewhite;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+}
+.Resultdiv {
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  /* background-color: blue; */
+}
