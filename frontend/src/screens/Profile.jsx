@@ -157,8 +157,10 @@ const Profile = () => {
         >
           <img src={pic} alt={name} className="profilePic" />
         </Col>
+        <Link to="/filldata" className="checkup">
+          Go For CheckUP
+        </Link>
       </Row>
-      <Link to="/filldata">Go For CheckUP</Link>
     </>
   );
 };

@@ -5,7 +5,7 @@ import "../cssfile/Login.css";
 import { useDispatch, useSelector } from "react-redux";
 import ErrorMessage from "../components/Error";
 import Loading from "../components/Loading";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { login } from "../actions/useractions";
 
 const Login = () => {
@@ -67,17 +67,17 @@ const Login = () => {
         <div>
           Don't have account ?{" "}
           {
-            <a href="/register" className="signup">
+            <Link to="/register" className="signup">
               SighUp
-            </a>
+            </Link>
           }
         </div>
         <div>
           Forgot Password ?{" "}
           {
-            <a href="/forgot" className="forgot">
+            <Link to="/forgot" className="forgot">
               Click Here !
-            </a>
+            </Link>
           }
         </div>
       </div>

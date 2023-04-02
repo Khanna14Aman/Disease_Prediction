@@ -94,7 +94,7 @@ const verifyotp = asyncHandler(async (req, res) => {
       });
 
       let info = await transporter.sendMail({
-        from: '"Fred Foo 👻" <foo@example.com>', // sender address
+        from: '"OTP 👻" Disease_Prediction@gmail.com', // sender address
         to: String(email), // list of receivers
         subject: "Hello ✔",
         text: otpvalue,

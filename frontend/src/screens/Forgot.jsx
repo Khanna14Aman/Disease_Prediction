@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import "../cssfile/Forgot.css";
 import ErrorMessage from "../components/Error";
@@ -166,14 +167,16 @@ const Forgot = () => {
           </Button>
         </Form>
         <div>
-          <a href="/login" className="signin">
-            SignIN
-          </a>
+          Already have an account ?{" "}
+          <Link to="/login" className="signin">
+            SignIn
+          </Link>
         </div>
         <div>
-          <a href="/register" className="signup">
-            SignUP
-          </a>
+          Don't have account ?{" "}
+          <Link to="/register" className="signup">
+            SignUp
+          </Link>
         </div>
       </div>
     </>

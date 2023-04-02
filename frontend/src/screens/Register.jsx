@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
 import { Button, Col, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { register } from "../actions/useractions";
 import "../cssfile/Register.css";
 import ErrorMessage from "../components/Error";
@@ -77,6 +77,15 @@ const Register = () => {
       dispatch(register(name, email, password, pic));
     }
   };
+
+  const [otp, setotp] = useState();
+  const [beforeemail, setbefore] = useState("");
+  const [timesend, settimesend] = useState();
+  const [recievedotp, setrecievedotp] = useState();
+  const [emailMessage, setemailMessage] = useState("");
+  const [otpMessage, setotpMessage] = useState("");
+  const [timeSubmit, setTimeMessage] = useState();
+  const [success, setsuccess] = useState("");
   return (
     <>
       <Row className="profileContainer">
@@ -141,24 +150,42 @@ const Register = () => {
                 custom
               />
             </Form.Group>
-            <Button variant="primary" type="submit">
+            <Form.Group controlId="formBasicPassword">
+              <Form.Label>OTP</Form.Label>
+              <Form.Control
+                type="password"
+                value={otp}
+                required
+                placeholder="OTP"
+                onChange={(e) => setotp(e.target.value)}
+              />
+            </Form.Group>
+            <Button variant="primary" style={{ marginTop: "10px" }}>
+              Send OTP
+            </Button>
+
+            <Button
+              variant="primary"
+              type="submit"
+              style={{ marginTop: "10px", marginLeft: "10px" }}
+            >
               Register
             </Button>
           </Form>
           <div>
             Already have an account ?{" "}
             {
-              <a href="/login" className="login">
+              <Link to="/login" className="login">
                 SignIn
-              </a>
+              </Link>
             }
           </div>
           <div>
             Forgot Password ?{" "}
             {
-              <a href="/forgot" className="forgot">
+              <Link to="/forgot" className="forgot">
                 Click Here !
-              </a>
+              </Link>
             }
           </div>
         </Col>

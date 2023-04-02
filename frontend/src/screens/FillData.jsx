@@ -324,10 +324,18 @@ const FillData = () => {
   return (
     <>
       <div className="navbar">
-        <Button variant="outline-primary" onClick={() => navigate("/profile")}>
+        <Button
+          variant="outline-primary"
+          style={{ border: "none" }}
+          onClick={() => navigate("/profile")}
+        >
           Update Profile
         </Button>
-        <Button variant="outline-primary" onClick={Logout}>
+        <Button
+          variant="outline-primary"
+          style={{ border: "none" }}
+          onClick={Logout}
+        >
           Logout
         </Button>
       </div>
