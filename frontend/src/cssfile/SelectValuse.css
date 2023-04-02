@@ -12,6 +12,7 @@
   height: 5vh;
 }
 .firstdiv {
+  font-weight: bold;
   width: 20vw;
   display: flex;
   justify-content: center;

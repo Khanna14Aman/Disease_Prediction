@@ -4,3 +4,19 @@
 .signup {
   color: black;
 }
+.forgot-header {
+  background-color: rgb(136, 197, 251);
+  height: 10vh;
+  padding-top: 2vh;
+  font-size: x-large;
+  text-align: center;
+}
+.forgot-outer-div1 {
+  position: fixed;
+  left: 35vw;
+  width: 30vw;
+  /* top: 22vh; */
+  border-radius: 20px;
+  padding: 10px;
+  background-color: rgb(241, 241, 233);
+}

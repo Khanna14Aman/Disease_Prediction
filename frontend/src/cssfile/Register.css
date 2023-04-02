@@ -4,3 +4,32 @@
 .forgot {
   color: balck;
 }
+/* .register-div-main {
+  display: flex;
+  justify-content: space-between;
+}
+.register-div-1 {
+  width: 50vw;
+}
+.register-div-2 {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  /* height: 30vh; */
+/* width: 40vw; */
+*/ .profilePic {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+.profileContainer {
+  display: flex;
+  margin: 20px;
+}
+@media only screen and (max-width: 768px) {
+  .profileContainer {
+    flex-direction: column-reverse;
+  }
+}

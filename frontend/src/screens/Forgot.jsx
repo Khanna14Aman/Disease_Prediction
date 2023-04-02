@@ -114,6 +114,7 @@ const Forgot = () => {
 
   return (
     <>
+      <div className="forgot-header">Change your Password Here</div>
       {success && <ErrorMessage>{success}</ErrorMessage>}
       {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
       {emailMessage && (
@@ -121,57 +122,59 @@ const Forgot = () => {
       )}
       {otpMessage && <ErrorMessage variant="danger">{otpMessage}</ErrorMessage>}
       {timeSubmit && <ErrorMessage variant="danger">{timeSubmit}</ErrorMessage>}
-      <Form onSubmit={SendOTP}>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control
-            type="email"
-            placeholder="Enter email"
-            required
-            value={email}
-            onChange={(e) => setemail(e.target.value)}
-          />
-        </Form.Group>
-        <Button variant="primary" type="submit">
-          Send OTP
-        </Button>
-      </Form>
-      <br />
-      <br />
-      <Form onSubmit={submitHandler}>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Enter OTP</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Enter OTP"
-            required
-            value={otp}
-            onChange={(e) => setotp(e.target.value)}
-          />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Password"
-            required
-            value={password}
-            onChange={(e) => setpassword(e.target.value)}
-          />
-        </Form.Group>
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
-      </Form>
-      <div>
-        <a href="/login" className="signin">
-          SignIN
-        </a>
-      </div>
-      <div>
-        <a href="/register" className="signup">
-          SignUP
-        </a>
+      <div className="forgot-outer-div1">
+        <Form onSubmit={SendOTP}>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Email address</Form.Label>
+            <Form.Control
+              type="email"
+              placeholder="Enter email"
+              required
+              value={email}
+              onChange={(e) => setemail(e.target.value)}
+            />
+          </Form.Group>
+          <Button variant="primary" type="submit">
+            Send OTP
+          </Button>
+        </Form>
+        <br />
+        <br />
+        <Form onSubmit={submitHandler}>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Enter OTP</Form.Label>
+            <Form.Control
+              type="password"
+              placeholder="Enter OTP"
+              required
+              value={otp}
+              onChange={(e) => setotp(e.target.value)}
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              type="password"
+              placeholder="Password"
+              required
+              value={password}
+              onChange={(e) => setpassword(e.target.value)}
+            />
+          </Form.Group>
+          <Button variant="primary" type="submit">
+            Submit
+          </Button>
+        </Form>
+        <div>
+          <a href="/login" className="signin">
+            SignIN
+          </a>
+        </div>
+        <div>
+          <a href="/register" className="signup">
+            SignUP
+          </a>
+        </div>
       </div>
     </>
   );

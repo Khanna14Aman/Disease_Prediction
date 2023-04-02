@@ -7,9 +7,9 @@ from sklearn.neural_network import _multilayer_perceptron as nmp
 #pd.set_option('display.max_rows', None)
 #pd.set_option('display.max_columns', None)
 #df is the training model
-df = pd.read_csv("C:\\Users\\khann\\Desktop\\disease_prediction\\backend\\Training.csv")
+df = pd.read_csv("C:\\Users\\khann\\Desktop\\disease_prediction_new\\backend\\Training.csv")
 #tes is the testing model
-tes = pd.read_csv("C:\\Users\\khann\\Desktop\\disease_prediction\\backend\\Testing.csv")
+tes = pd.read_csv("C:\\Users\\khann\\Desktop\\disease_prediction_new\\backend\\Testing.csv")
 #print(df.head())
 df = df.drop(["Unnamed: 133"],axis=1)
 #print("Chekcing null valeus in train_df: ", df.isnull().sum().any())

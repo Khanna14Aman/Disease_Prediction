@@ -38,6 +38,10 @@ const Profile = () => {
   const preset_key = "disease_prediction";
   const cloud_name = "amankhanna";
   const postDetails = (pics) => {
+    if (!pics) {
+      setPicMessage(null);
+      return;
+    }
     if (
       pics ===
       "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg"
@@ -45,10 +49,7 @@ const Profile = () => {
       return setPicMessage("Please Select an Image");
     }
     setPicMessage(null);
-    if (
-      (pics.type && pics.type === "image/jpeg") ||
-      pics.type === "image/png"
-    ) {
+    if (pics.type === "image/jpeg" || pics.type === "image/png") {
       const formData = new FormData();
       formData.append("file", pics);
       console.log("1");

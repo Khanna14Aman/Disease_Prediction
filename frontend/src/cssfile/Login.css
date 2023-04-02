@@ -4,3 +4,22 @@
 .forgot {
   color: black;
 }
+.login-header {
+  background-color: rgb(136, 197, 251);
+  height: 10vh;
+  padding-top: 2vh;
+  font-size: x-large;
+  text-align: center;
+  /* font-weight: bolder; */
+}
+.outer-divv1 {
+  padding: 10px;
+  position: fixed;
+  left: 35vw;
+  /* top: 25vh; */
+  border-radius: 20px;
+  background-color: rgb(241, 241, 233);
+  width: 30vw;
+  height: 60vh;
+  box-shadow: 10px 10px lightblue;
+}

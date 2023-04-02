@@ -1,0 +1,31 @@
+.outer-div1 {
+  height: 93vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.outer-div2 {
+  box-shadow: 10px 10px lightblue;
+  position: relative;
+  border-radius: 20px;
+  height: 50vh;
+  width: 50vw;
+  background-color: red;
+}
+.button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+.outer-div2a,
+.outer-div2b,
+.outer-div2c,
+.outer-div2d {
+  font-weight: bold;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+.outer-div2d {
+  position: absolute;
+  bottom: 10px;
+}

@@ -6,6 +6,7 @@ import { logout } from "../actions/useractions";
 import { useNavigate } from "react-router-dom";
 import SelectValues from "../components/SelectValues";
 import Loading from "../components/Loading";
+import ShowResult from "./ShowResult";
 import ErrorMessage from "../components/Error";
 import axios from "axios";
 
@@ -43,7 +44,7 @@ const FillData = () => {
     "dehydration",
     "depression",
     "diarrhoea",
-    "dischromic _patches",
+    "dischromic_patches",
     "distention_of_abdomen",
     "dizziness",
     "drying_and_tingling_lips",
@@ -55,7 +56,7 @@ const FillData = () => {
     "fatigue",
     "fluid_overload",
     "fluid_overload",
-    "foul_smell_of urine",
+    "foul_smell_of_urine",
     "headache",
     "high_fever",
     "hip_joint_pain",
@@ -116,7 +117,7 @@ const FillData = () => {
     "slurred_speech",
     "small_dents_in_nails",
     "spinning_movements",
-    "spotting_ urination",
+    "spotting_urination",
     "stiff_neck",
     "stomach_bleeding",
     "stomach_pain",
@@ -129,7 +130,7 @@ const FillData = () => {
     "swollen_extremeties",
     "swollen_legs",
     "throat_irritation",
-    "toxic_look_(typhos)",
+    "toxic_look_typhos",
     "ulcers_on_tongue",
     "unsteadiness",
     "visual_disturbances",
@@ -278,6 +279,7 @@ const FillData = () => {
     yellowing_of_eyes: 0,
     yellowish_skin: 0,
   });
+  const [result, setresult] = useState("");
   const [showdata, setshowdata] = useState(true);
   const [error, seterror] = useState("");
   const [loading, setloading] = useState(false);
@@ -310,7 +312,7 @@ const FillData = () => {
         config
       );
       setloading(false);
-      console.log(data.data);
+      setresult(data.data);
       setshowdata(true);
     } catch (err) {
       console.log(err);
@@ -329,15 +331,17 @@ const FillData = () => {
           Logout
         </Button>
       </div>
+      {result && <ShowResult result={result} setresult={setresult} />}
       {error && <ErrorMessage>{error}</ErrorMessage>}
-      {showdata && (
-        <div>
-          If you have any symptoms please do yes for that By default we cosider
-          no symptoms
-        </div>
+      {!result && showdata && <span style={{ color: "red" }}>* </span>}
+      {!result && showdata && (
+        <span style={{ fontWeight: "bold" }}>
+          All the values are present in ascending order
+        </span>
       )}
       {loading && <Loading />}
-      {showdata &&
+      {!result &&
+        showdata &&
         arr.map((name, index) => (
           <SelectValues
             key={index}
@@ -346,7 +350,7 @@ const FillData = () => {
             setValues={setValues}
           />
         ))}
-      {showdata && (
+      {!result && showdata && (
         <div className="Resultdiv" onClick={submitHandler}>
           <Button>Find Result</Button>
         </div>
