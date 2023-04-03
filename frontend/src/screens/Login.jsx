@@ -17,7 +17,7 @@ const Login = () => {
   const navigate = useNavigate();
   useEffect(() => {
     if (userInfo) {
-      navigate("/");
+      navigate("/filldata");
     }
   }, [navigate, userInfo]);
   const submitHandler = async (e) => {

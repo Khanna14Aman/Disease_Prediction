@@ -65,27 +65,83 @@ const Register = () => {
   const navigate = useNavigate();
   useEffect(() => {
     if (userInfo) {
-      navigate("/");
+      navigate("/filldata");
     }
   }, [navigate, userInfo]);
-
-  const submitHandler = (e) => {
-    e.preventDefault();
-    if (password !== confirmpassword) {
-      setMessage("password do not match");
-    } else {
-      dispatch(register(name, email, password, pic));
-    }
-  };
 
   const [otp, setotp] = useState();
   const [beforeemail, setbefore] = useState("");
   const [timesend, settimesend] = useState();
   const [recievedotp, setrecievedotp] = useState();
-  const [emailMessage, setemailMessage] = useState("");
-  const [otpMessage, setotpMessage] = useState("");
-  const [timeSubmit, setTimeMessage] = useState();
-  const [success, setsuccess] = useState("");
+  const [otpsuccess, setotpsuccess] = useState("");
+  const [otperror, setotperror] = useState("");
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    if (password !== confirmpassword) {
+      setMessage("password do not match");
+      setotperror("");
+      setotpsuccess("");
+      return;
+    }
+    if (!recievedotp) {
+      setotperror("Please first verigy OTP");
+      setotpsuccess("");
+      return;
+    }
+    if (recievedotp.toString() !== otp.toString()) {
+      setotperror("OTP Does'nt match");
+      setotpsuccess("");
+      return;
+    }
+    if (email !== beforeemail) {
+      setotperror("We have'nt send OTP to this E-mail");
+      setotpsuccess("");
+      return;
+    }
+    const time = Date.now() - timesend;
+    if (time > 120000) {
+      setotperror("Time Over");
+      setotpsuccess("");
+      return;
+    } else {
+      dispatch(register(name, email, password, pic));
+      setotperror("");
+      setotpsuccess("");
+    }
+  };
+
+  const SendOTP = async (e) => {
+    if (!email) {
+      setotperror("Email not filled");
+      setotpsuccess("");
+      return;
+    }
+    try {
+      const config = {
+        headers: {
+          "Content-type": "application/json",
+        },
+      };
+      const { data } = await axios.post(
+        "/user/verify/otpregister",
+        { email },
+        config
+      );
+      setbefore(email);
+      settimesend(Date.now());
+      setrecievedotp(data.otp);
+      setotperror("");
+      setotpsuccess("OTP sended");
+    } catch (err) {
+      setotpsuccess("");
+      setotperror(
+        err.response && err.response.data.message
+          ? err.response.data.message
+          : err.message
+      );
+    }
+  };
   return (
     <>
       <Row className="profileContainer">
@@ -150,6 +206,10 @@ const Register = () => {
                 custom
               />
             </Form.Group>
+            {otperror && (
+              <ErrorMessage variant="danger">{otperror}</ErrorMessage>
+            )}
+            {otpsuccess && <ErrorMessage>{otpsuccess}</ErrorMessage>}
             <Form.Group controlId="formBasicPassword">
               <Form.Label>OTP</Form.Label>
               <Form.Control
@@ -160,7 +220,11 @@ const Register = () => {
                 onChange={(e) => setotp(e.target.value)}
               />
             </Form.Group>
-            <Button variant="primary" style={{ marginTop: "10px" }}>
+            <Button
+              variant="primary"
+              style={{ marginTop: "10px" }}
+              onClick={SendOTP}
+            >
               Send OTP
             </Button>
 

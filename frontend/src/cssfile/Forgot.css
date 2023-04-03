@@ -10,13 +10,39 @@
   padding-top: 2vh;
   font-size: x-large;
   text-align: center;
+  animation-name: forgot-header;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+}
+@keyframes forgot-header {
+  0% {
+    color: white;
+    height: 0vh;
+  }
+  100% {
+    /* color: black; */
+    height: 10vh;
+  }
 }
 .forgot-outer-div1 {
-  position: fixed;
+  position: relative;
   left: 35vw;
   width: 30vw;
+  margin-top: 5px;
   /* top: 22vh; */
   border-radius: 20px;
   padding: 10px;
+  box-shadow: 3px 3px 3px rgb(49, 48, 48);
   background-color: rgb(241, 241, 233);
+  animation-name: forgot-slider;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+}
+@keyframes forgot-slider {
+  0% {
+    left: 100vw;
+  }
+  100% {
+    left: 35vw;
+  }
 }

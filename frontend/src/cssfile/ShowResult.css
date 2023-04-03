@@ -5,12 +5,29 @@
   justify-content: center;
 }
 .outer-div2 {
-  box-shadow: 10px 10px lightblue;
+  box-shadow: 3px 3px 3px rgb(49, 48, 48);
   position: relative;
   border-radius: 20px;
   height: 50vh;
   width: 50vw;
   background-color: red;
+  animation-name: result-box-animation;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+}
+@keyframes result-box-animation {
+  0% {
+    height: 10vh;
+    width: 10vw;
+  }
+  /* 50% {
+    height: 25vh;
+    width: 25vw;
+  } */
+  100% {
+    height: 50vh;
+    width: 50vw;
+  }
 }
 .button {
   position: absolute;

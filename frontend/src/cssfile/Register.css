@@ -18,11 +18,23 @@
   padding: 20px;
   /* height: 30vh; */
 /* width: 40vw; */
-*/ .profilePic {
+.profilePic {
   width: 60%;
   display: flex;
   align-items: center;
   padding: 20px;
+  animation-name: profile-pic-slider;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+}
+@keyframes profile-pic-slider {
+  0% {
+    width: 0%;
+    /* height: 0%; */
+  }
+  100% {
+    width: 60%;
+  }
 }
 .profileContainer {
   display: flex;

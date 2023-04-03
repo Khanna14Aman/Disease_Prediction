@@ -10,16 +10,41 @@
   padding-top: 2vh;
   font-size: x-large;
   text-align: center;
+  animation-name: login-header;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
   /* font-weight: bolder; */
+}
+@keyframes login-header {
+  0% {
+    height: 0vh;
+    color: white;
+  }
+  100% {
+    height: 10vh;
+    /* color: black; */
+  }
 }
 .outer-divv1 {
   padding: 10px;
-  position: fixed;
+  position: relative;
   left: 35vw;
+  margin-top: 5px;
   /* top: 25vh; */
   border-radius: 20px;
   background-color: rgb(241, 241, 233);
   width: 30vw;
   height: 60vh;
-  box-shadow: 10px 10px lightblue;
+  box-shadow: 3px 3px 3px rgb(49, 48, 48);
+  animation-name: login-slider;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+}
+@keyframes login-slider {
+  0% {
+    left: 0vw;
+  }
+  100% {
+    left: 35vw;
+  }
 }
