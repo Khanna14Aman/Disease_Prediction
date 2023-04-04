@@ -1,8 +1,8 @@
 .navbar {
-  background-color: antiquewhite;
+  background-color: rgba(215, 208, 201, 0.215);
   padding: 0;
   display: flex;
-  justify-content: space-around;
+  justify-content: left;
 }
 .Resultdiv {
   height: 10vh;

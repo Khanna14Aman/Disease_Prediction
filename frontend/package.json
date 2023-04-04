@@ -6,6 +6,8 @@
   "dependencies": {
     "@cloudinary/react": "^1.11.2",
     "@cloudinary/url-gen": "^1.9.2",
+    "@coreui/icons": "^3.0.1",
+    "@coreui/icons-react": "^2.1.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -20,6 +22,7 @@
     "react-router-dom": "^6.9.0",
     "react-scripts": "5.0.1",
     "react-toast-notifications": "^2.5.1",
+    "react-toastify": "^9.1.2",
     "redux": "^4.2.1",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.2",

@@ -1,0 +1,20 @@
+.SideBar-main {
+  height: 100vh;
+  width: 15vw;
+  background-color: rgb(196, 186, 206);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  animation-name: push-sidebar;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+}
+@keyframes push-sidebar {
+  0% {
+    width: 0vw;
+  }
+  100% {
+    width: 15vw;
+  }
+}

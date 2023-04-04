@@ -1,14 +1,17 @@
 import "../cssfile/Filldata.css";
 import React, { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../actions/useractions";
+import { useSelector } from "react-redux";
+// import { logout } from "../actions/useractions";
 import { useNavigate } from "react-router-dom";
 import SelectValues from "../components/SelectValues";
 import Loading from "../components/Loading";
 import ShowResult from "./ShowResult";
 import ErrorMessage from "../components/Error";
 import axios from "axios";
+import SideBar from "../components/SideBar";
+import { cilAlignLeft } from "@coreui/icons";
+import CIcon from "@coreui/icons-react";
 
 const FillData = () => {
   const arr = [
@@ -279,11 +282,12 @@ const FillData = () => {
     yellowing_of_eyes: 0,
     yellowish_skin: 0,
   });
+  const [isSideBar, setSideBar] = useState(false);
   const [result, setresult] = useState("");
   const [showdata, setshowdata] = useState(true);
   const [error, seterror] = useState("");
   const [loading, setloading] = useState(false);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const navigate = useNavigate();
   const UserLogin = useSelector((state) => state.userLogin);
   const { userInfo } = UserLogin;
@@ -292,10 +296,10 @@ const FillData = () => {
       navigate("/");
     }
   }, [userInfo, navigate]);
-  const Logout = () => {
-    dispatch(logout());
-    navigate("/");
-  };
+  // const Logout = () => {
+  //   dispatch(logout());
+  //   navigate("/");
+  // };
   const submitHandler = async () => {
     try {
       seterror("");
@@ -323,8 +327,16 @@ const FillData = () => {
   };
   return (
     <>
+      {isSideBar && <SideBar setSideBar={setSideBar} />}
       <div className="navbar">
         <Button
+          variant="outline-primary"
+          style={{ border: "none" }}
+          onClick={() => setSideBar(true)}
+        >
+          <CIcon icon={cilAlignLeft} height={20} width={20} />
+        </Button>
+        {/* <Button
           variant="outline-primary"
           style={{ border: "none" }}
           onClick={() => navigate("/profile")}
@@ -337,7 +349,7 @@ const FillData = () => {
           onClick={Logout}
         >
           Logout
-        </Button>
+        </Button> */}
       </div>
       {result && <ShowResult result={result} setresult={setresult} />}
       {error && <ErrorMessage>{error}</ErrorMessage>}

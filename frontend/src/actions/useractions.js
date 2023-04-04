@@ -12,7 +12,6 @@ import {
   USER_UPDATE_REQUEST,
   USER_UPDATE_SUCCESS,
 } from "../constants/constants";
-
 export const login = (email, password) => async (dispatch) => {
   try {
     dispatch({ type: USER_LOGIN_REQUEST });
@@ -29,7 +28,6 @@ export const login = (email, password) => async (dispatch) => {
       config
     );
     dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
-
     localStorage.setItem("userInfo", JSON.stringify(data));
   } catch (error) {
     dispatch({
