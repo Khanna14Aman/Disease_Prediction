@@ -26,8 +26,10 @@ const Login = () => {
   };
   return (
     <>
-      <div className="login-header">
-        Welcome to Login Page of Disease Prediction
+      <div style={{ height: "10vh" }}>
+        <div className="login-header">
+          Welcome to Login Page of Disease Prediction
+        </div>
       </div>
       {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
       {loading && <Loading />}

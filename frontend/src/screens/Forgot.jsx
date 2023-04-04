@@ -115,7 +115,9 @@ const Forgot = () => {
 
   return (
     <>
-      <div className="forgot-header">Change your Password Here</div>
+      <div style={{ height: "10vh" }}>
+        <div className="forgot-header">Change your Password Here</div>
+      </div>
       {success && <ErrorMessage>{success}</ErrorMessage>}
       {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
       {emailMessage && (
