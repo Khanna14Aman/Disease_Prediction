@@ -26,7 +26,7 @@ const SideBar = ({ setSideBar }) => {
         <div style={{ display: "flex", justifyContent: "center" }}>
           <Button
             variant="outline-primary"
-            style={{ border: "none" }}
+            style={{ border: "none", width: "100%" }}
             onClick={() => navigate("/profile")}
           >
             Update Profile
@@ -35,7 +35,7 @@ const SideBar = ({ setSideBar }) => {
         <div style={{ display: "flex", justifyContent: "center" }}>
           <Button
             variant="outline-primary"
-            style={{ border: "none" }}
+            style={{ border: "none", width: "100%" }}
             onClick={Logout}
           >
             Logout
