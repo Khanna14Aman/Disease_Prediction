@@ -88,8 +88,8 @@ const verifyotp = asyncHandler(async (req, res) => {
         host: "smtp-relay.sendinblue.com",
         port: 587,
         auth: {
-          user: "khanna14aman@gmail.com",
-          pass: "dbZjPvzQyEs6FRwL",
+          user: process.env.email,
+          pass: process.env.smtpkey,
         },
       });
 
@@ -102,6 +102,7 @@ const verifyotp = asyncHandler(async (req, res) => {
     }
     main()
       .then(() => {
+        console.log(otpvalue);
         res.json({ otp: otpvalue });
       })
       .catch((err) => {
@@ -126,8 +127,8 @@ const verifyotpregister = asyncHandler(async (req, res) => {
         host: "smtp-relay.sendinblue.com",
         port: 587,
         auth: {
-          user: "khanna14aman@gmail.com",
-          pass: "dbZjPvzQyEs6FRwL",
+          user: process.env.email,
+          pass: process.env.smtpkey,
         },
       });
 
@@ -137,7 +138,7 @@ const verifyotpregister = asyncHandler(async (req, res) => {
         subject: "Hello ✔",
         text: otpvalue,
       });
-      console.log(otpvalue);
+      // console.log(otpvalue);
     }
     main()
       .then(() => {
