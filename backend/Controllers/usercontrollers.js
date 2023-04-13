@@ -88,8 +88,8 @@ const verifyotp = asyncHandler(async (req, res) => {
         host: "smtp-relay.sendinblue.com",
         port: 587,
         auth: {
-          user: process.env.email,
-          pass: process.env.smtpkey,
+          user: "khanna14aman@gmail.com",
+          pass: "dbZjPvzQyEs6FRwL",
         },
       });
 
@@ -127,8 +127,8 @@ const verifyotpregister = asyncHandler(async (req, res) => {
         host: "smtp-relay.sendinblue.com",
         port: 587,
         auth: {
-          user: process.env.email,
-          pass: process.env.smtpkey,
+          user: "khanna14aman@gmail.com",
+          pass: "dbZjPvzQyEs6FRwL",
         },
       });
 
