@@ -12,5 +12,4 @@ app.use("/user", router);
 app.use(cors());
 app.use(notFound);
 app.use(errorHandler);
-console.log("hello world");
 app.listen(PORT, () => console.log(`Your server is running on port ${PORT}`));
