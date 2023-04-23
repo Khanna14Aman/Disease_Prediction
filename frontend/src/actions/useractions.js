@@ -93,7 +93,7 @@ export const updateProfile = (user) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.post("/user/profile", user, config);
+    const { data } = await axios.put("/user/profile", user, config);
 
     dispatch({ type: USER_UPDATE_SUCCESS, payload: data });
 
