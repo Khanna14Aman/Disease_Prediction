@@ -1,6 +1,6 @@
 .SideBar-main {
   height: 100vh;
-  width: 15vw;
+  width: 20%;
   background-color: rgb(196, 186, 206);
   position: fixed;
   top: 0;
@@ -12,9 +12,133 @@
 }
 @keyframes push-sidebar {
   0% {
-    width: 0vw;
+    width: 0%;
   }
   100% {
-    width: 15vw;
+    width: 20%;
   }
+}
+
+@media only screen and (max-width: 950px) and (min-width: 850px) {
+  .SideBar-main {
+    width: 25%;
+    animation-name: push-sidebar2;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+  }
+}
+@keyframes push-sidebar2 {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 25%;
+  }
+}
+@media only screen and (max-width: 849px) and (min-width: 750px) {
+  .SideBar-main {
+    width: 30%;
+    animation-name: push-sidebar3;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+  }
+}
+@keyframes push-sidebar3 {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 30%;
+  }
+}
+
+@media only screen and (max-width: 749px) and (min-width: 600px) {
+  .SideBar-main {
+    width: 40%;
+    animation-name: push-sidebar4;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+  }
+}
+@keyframes push-sidebar4 {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 40%;
+  }
+}
+
+@media only screen and (max-width: 599px) and (min-width: 500px) {
+  .SideBar-main {
+    width: 50%;
+    animation-name: push-sidebar5;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+  }
+}
+@keyframes push-sidebar5 {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 50%;
+  }
+}
+@media only screen and (max-width: 499px) and (min-width: 400px) {
+  .SideBar-main {
+    width: 65%;
+    animation-name: push-sidebar6;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+  }
+}
+@keyframes push-sidebar6 {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 65%;
+  }
+}
+
+@media only screen and (max-width: 399px) and (min-width: 300px) {
+  .SideBar-main {
+    width: 80%;
+    animation-name: push-sidebar7;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+  }
+}
+@keyframes push-sidebar7 {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 299px) {
+  .SideBar-main {
+    width: 100%;
+    animation-name: push-sidebar8;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+  }
+}
+@keyframes push-sidebar8 {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.back-icon {
+  cursor: pointer;
+  margin-left: 1vw;
+  margin-bottom: 2vh;
+  margin-top: 2vh;
 }

@@ -1,0 +1,16 @@
+.navbar {
+  background-color: rgb(174, 7, 246);
+  padding: 1vh;
+  min-height: 10vh;
+  display: flex;
+  justify-content: left;
+}
+.menuIcon {
+  margin-left: 1vw;
+}
+.menuIcon:hover {
+  cursor: pointer;
+}
+#search {
+  margin-left: 2vw;
+}

@@ -16,29 +16,29 @@ const SideBar = ({ setSideBar }) => {
   return (
     <>
       <div className="SideBar-main">
-        <Button
-          variant="outline-primary"
-          style={{ border: "none" }}
+        <CIcon
+          className="back-icon"
+          icon={cilArrowThickLeft}
+          height={"3vh"}
+          width={"3vh"}
           onClick={() => setSideBar(false)}
-        >
-          <CIcon icon={cilArrowThickLeft} height={20} width={20} />
-        </Button>
+        />
         <div style={{ display: "flex", justifyContent: "center" }}>
           <Button
-            variant="outline-primary"
-            style={{ border: "none", width: "100%" }}
+            variant="outline-secondary"
+            style={{ border: "none", width: "100%", fontSize: "3vh" }}
             onClick={() => navigate("/profile")}
           >
-            Update Profile
+            <strong>Update Profile</strong>
           </Button>
         </div>
         <div style={{ display: "flex", justifyContent: "center" }}>
           <Button
-            variant="outline-primary"
-            style={{ border: "none", width: "100%" }}
+            variant="outline-secondary"
+            style={{ border: "none", width: "100%", fontSize: "3vh" }}
             onClick={Logout}
           >
-            Logout
+            <strong>Logout</strong>
           </Button>
         </div>
         {/* <div>SideBar</div> */}

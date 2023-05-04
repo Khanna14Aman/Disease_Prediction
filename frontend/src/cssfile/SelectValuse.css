@@ -1,25 +1,18 @@
 .outerdiv {
-  margin: auto;
   background-color: red;
   margin-top: 5vh;
-  height: 8vh;
-  width: 60vw;
+  border-radius: 20px;
+  min-height: 10vh;
+  padding-left: 2vw;
+  padding-right: 2vw;
   align-items: center;
   justify-content: space-between;
   display: flex;
+  font-size: 3vh;
 }
-.selectdiv {
-  height: 5vh;
-}
-.firstdiv {
-  font-weight: bold;
-  width: 20vw;
-  display: flex;
-  justify-content: center;
-}
-.seconddiv {
-  width: 20vw;
-  /* background-color: blue; */
-  display: flex;
-  justify-content: center;
+@media only screen and (max-width: 300px) {
+  .outerdiv {
+    flex-direction: column;
+    padding: 1vh;
+  }
 }

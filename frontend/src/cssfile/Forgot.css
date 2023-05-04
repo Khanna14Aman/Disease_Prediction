@@ -4,9 +4,24 @@
 .signup {
   color: black;
 }
+
+.forgot-container {
+  min-height: 10vh;
+  background-color: rgb(11, 129, 232);
+}
+
+@media only screen and (max-width: 338px) and (min-width: 200px) {
+  .forgot-container {
+    min-height: 15vh;
+  }
+}
+@media only screen and (max-width: 199px) {
+  .forgot-container {
+    min-height: 25vh;
+  }
+}
 .forgot-header {
-  background-color: rgb(136, 197, 251);
-  height: 10vh;
+  min-height: 10vh;
   padding-top: 2vh;
   font-size: x-large;
   text-align: center;
@@ -16,20 +31,19 @@
 }
 @keyframes forgot-header {
   0% {
-    color: white;
     height: 0vh;
+    color: white;
   }
   100% {
-    /* color: black; */
     height: 10vh;
   }
 }
+
 .forgot-outer-div1 {
   position: relative;
-  left: 35vw;
-  width: 30vw;
-  margin-top: 5px;
-  /* top: 22vh; */
+  left: 25%;
+  width: 50%;
+  margin-top: 2vh;
   border-radius: 20px;
   padding: 10px;
   box-shadow: 3px 3px 3px rgb(49, 48, 48);
@@ -40,9 +54,35 @@
 }
 @keyframes forgot-slider {
   0% {
-    left: 100vw;
+    left: 100%;
   }
   100% {
-    left: 35vw;
+    left: 25%;
+  }
+}
+
+@media only screen and (max-width: 600px) and (min-width: 351px) {
+  .forgot-outer-div1 {
+    left: 10%;
+    width: 80%;
+    animation-name: forgot-slider2;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+  }
+}
+@keyframes forgot-slider2 {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: 10%;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .forgot-outer-div1 {
+    width: 100%;
+    left: 0;
+    animation: none;
   }
 }

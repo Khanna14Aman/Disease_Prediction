@@ -4,16 +4,28 @@
 .forgot {
   color: black;
 }
+.login-container {
+  min-height: 10vh;
+  background-color: rgb(11, 129, 232);
+}
+@media only screen and (max-width: 510px) and (min-width: 276px) {
+  .login-container {
+    min-height: 20vh;
+  }
+}
+@media only screen and (max-width: 275px) {
+  .login-container {
+    min-height: 25vh;
+  }
+}
 .login-header {
-  background-color: rgb(136, 197, 251);
-  height: 10vh;
+  min-height: 10vh;
   padding-top: 2vh;
   font-size: x-large;
   text-align: center;
   animation-name: login-header;
   animation-duration: 2s;
   animation-iteration-count: 1;
-  /* font-weight: bolder; */
 }
 @keyframes login-header {
   0% {
@@ -28,13 +40,12 @@
 .outer-divv1 {
   padding: 10px;
   position: relative;
-  left: 35vw;
-  margin-top: 5px;
-  /* top: 25vh; */
+  left: 25%;
+  margin-top: 2vh;
   border-radius: 20px;
   background-color: rgb(241, 241, 233);
-  width: 30vw;
-  height: 60vh;
+  width: 50%;
+  min-height: 60vh;
   box-shadow: 3px 3px 3px rgb(49, 48, 48);
   animation-name: login-slider;
   animation-duration: 2s;
@@ -42,9 +53,37 @@
 }
 @keyframes login-slider {
   0% {
-    left: 0vw;
+    left: -100%;
   }
   100% {
-    left: 35vw;
+    left: 25%;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .outer-divv1 {
+    width: 100%;
+    left: 0;
+    animation: none;
+    height: 70vh;
+  }
+}
+
+@media only screen and (max-width: 800px) and (min-width: 351px) {
+  .outer-divv1 {
+    width: 80%;
+    left: 10%;
+    animation-name: login-slider2;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+  }
+}
+
+@keyframes login-slider2 {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 10%;
   }
 }

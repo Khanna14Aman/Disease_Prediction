@@ -15,7 +15,9 @@ const ShowResult = ({ result, setresult }) => {
           <div className="outer-div2c">{result}</div>
           <div className="outer-div2d">Get Well Soon....</div>
           <div className="button">
-            <Button onClick={() => setresult("")}>OK</Button>
+            <Button onClick={() => setresult("")} style={{ fontSize: "3vh" }}>
+              OK
+            </Button>
           </div>
         </div>
       </div>

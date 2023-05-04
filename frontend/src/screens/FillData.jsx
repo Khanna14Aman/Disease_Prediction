@@ -1,17 +1,15 @@
 import "../cssfile/Filldata.css";
+import "../cssfile/ScrollBar.css";
 import React, { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import { useSelector } from "react-redux";
-// import { logout } from "../actions/useractions";
 import { useNavigate } from "react-router-dom";
 import SelectValues from "../components/SelectValues";
 import Loading from "../components/Loading";
-import ShowResult from "./ShowResult";
+import ShowResult from "../components/ShowResult";
 import ErrorMessage from "../components/Error";
 import axios from "axios";
-import SideBar from "../components/SideBar";
-import { cilAlignLeft } from "@coreui/icons";
-import CIcon from "@coreui/icons-react";
+import Header from "../components/Header";
 
 const FillData = () => {
   const arr = [
@@ -282,7 +280,6 @@ const FillData = () => {
     yellowing_of_eyes: 0,
     yellowish_skin: 0,
   });
-  const [isSideBar, setSideBar] = useState(false);
   const [result, setresult] = useState("");
   const [showdata, setshowdata] = useState(true);
   const [error, seterror] = useState("");
@@ -296,10 +293,7 @@ const FillData = () => {
       navigate("/");
     }
   }, [userInfo, navigate]);
-  // const Logout = () => {
-  //   dispatch(logout());
-  //   navigate("/");
-  // };
+
   const submitHandler = async () => {
     try {
       seterror("");
@@ -325,54 +319,38 @@ const FillData = () => {
       setloading(false);
     }
   };
+
+  const [searchValue, setSearchValue] = useState("");
+
   return (
     <>
-      {isSideBar && <SideBar setSideBar={setSideBar} />}
-      <div className="navbar">
-        <Button
-          variant="outline-primary"
-          style={{ border: "none" }}
-          onClick={() => setSideBar(true)}
-        >
-          <CIcon icon={cilAlignLeft} height={20} width={20} />
-        </Button>
-        {/* <Button
-          variant="outline-primary"
-          style={{ border: "none" }}
-          onClick={() => navigate("/profile")}
-        >
-          Update Profile
-        </Button>
-        <Button
-          variant="outline-primary"
-          style={{ border: "none" }}
-          onClick={Logout}
-        >
-          Logout
-        </Button> */}
-      </div>
+      <Header setSearchValue={setSearchValue} />
       {result && <ShowResult result={result} setresult={setresult} />}
       {error && <ErrorMessage>{error}</ErrorMessage>}
       {!result && showdata && <span style={{ color: "red" }}>* </span>}
       {!result && showdata && (
-        <span style={{ fontWeight: "bold" }}>
+        <span style={{ fontWeight: "bold", fontSize: "3vh" }}>
           All the values are present in ascending order
         </span>
       )}
       {loading && <Loading />}
       {!result &&
         showdata &&
-        arr.map((name, index) => (
-          <SelectValues
-            key={index}
-            name={name}
-            objectValues={objectValues}
-            setValues={setValues}
-          />
-        ))}
+        arr
+          .filter((value) => {
+            return value.toLowerCase().includes(searchValue.toLowerCase());
+          })
+          .map((name, index) => (
+            <SelectValues
+              key={index}
+              name={name}
+              objectValues={objectValues}
+              setValues={setValues}
+            />
+          ))}
       {!result && showdata && (
         <div className="Resultdiv" onClick={submitHandler}>
-          <Button>Find Result</Button>
+          <Button style={{ fontSize: "3vh" }}>Find Result</Button>
         </div>
       )}
     </>

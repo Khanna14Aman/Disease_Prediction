@@ -22,7 +22,9 @@ function App() {
           <Route
             exact
             path="/*"
-            element={<ErrorMessage>{"Wrong URL"}</ErrorMessage>}
+            element={
+              <ErrorMessage variant="danger">{"INVALID URL"}</ErrorMessage>
+            }
           />
         </Routes>
       </BrowserRouter>

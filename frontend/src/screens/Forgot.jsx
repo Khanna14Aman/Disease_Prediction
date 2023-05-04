@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { Button, Form } from "react-bootstrap";
+import React from "react";
+import { Button, Container, Form } from "react-bootstrap";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -115,9 +115,9 @@ const Forgot = () => {
 
   return (
     <>
-      <div style={{ height: "10vh" }}>
+      <Container fluid className="forgot-container">
         <div className="forgot-header">Change your Password Here</div>
-      </div>
+      </Container>
       {success && <ErrorMessage>{success}</ErrorMessage>}
       {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
       {emailMessage && (
@@ -137,7 +137,7 @@ const Forgot = () => {
               onChange={(e) => setemail(e.target.value)}
             />
           </Form.Group>
-          <Button variant="primary" type="submit">
+          <Button variant="secondary" type="submit">
             Send OTP
           </Button>
         </Form>
@@ -164,7 +164,7 @@ const Forgot = () => {
               onChange={(e) => setpassword(e.target.value)}
             />
           </Form.Group>
-          <Button variant="primary" type="submit">
+          <Button variant="success" type="submit">
             Submit
           </Button>
         </Form>

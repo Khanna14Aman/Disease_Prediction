@@ -7,8 +7,7 @@ import ErrorMessage from "../components/Error";
 import Loading from "../components/Loading";
 import { Link, useNavigate } from "react-router-dom";
 import { login } from "../actions/useractions";
-// import { ToastContainer, toast } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
+import { Col, Container, Row } from "react-bootstrap";
 
 const Login = () => {
   const [email, setemail] = useState("");
@@ -28,11 +27,11 @@ const Login = () => {
   };
   return (
     <>
-      <div style={{ height: "10vh" }}>
+      <Container fluid className="login-container">
         <div className="login-header">
           Welcome to Login Page of Disease Prediction
         </div>
-      </div>
+      </Container>
       {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
       {loading && <Loading />}
       <div className="outer-divv1">
@@ -68,24 +67,25 @@ const Login = () => {
             Submit
           </Button>
         </Form>
-        <div>
-          Don't have account ?{" "}
-          {
-            <Link to="/register" className="signup">
-              SighUp
-            </Link>
-          }
-        </div>
-        <div>
-          Forgot Password ?{" "}
-          {
-            <Link to="/forgot" className="forgot">
-              Click Here !
-            </Link>
-          }
-        </div>
+        <Container style={{ position: "absolute", bottom: "2vh" }}>
+          <Row>
+            <Col>
+              Don't have account ?{" "}
+              <Link to="/register" className="signup">
+                SighUp
+              </Link>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              Forgot Password ?{" "}
+              <Link to="/forgot" className="forgot">
+                Click Here !
+              </Link>
+            </Col>
+          </Row>
+        </Container>
       </div>
-      {/* {userInfo && <ToastContainer />} */}
     </>
   );
 };

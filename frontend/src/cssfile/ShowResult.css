@@ -2,6 +2,7 @@
   height: 93vh;
   display: flex;
   align-items: center;
+  font-size: 3vh;
   justify-content: center;
 }
 .outer-div2 {
@@ -45,4 +46,43 @@
 .outer-div2d {
   position: absolute;
   bottom: 10px;
+}
+
+@media only screen and (max-width: 500px) {
+  .outer-div2 {
+    width: 100%;
+    animation-name: result-box-animation2;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+  }
+}
+
+@keyframes result-box-animation2 {
+  0% {
+    height: 10vh;
+    width: 10%;
+  }
+  100% {
+    height: 50vh;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 800px) and (min-width: 500px) {
+  .outer-div2 {
+    width: 80%;
+    animation-name: result-box-animation3;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+  }
+}
+@keyframes result-box-animation3 {
+  0% {
+    height: 10vh;
+    width: 10%;
+  }
+  100% {
+    height: 50vh;
+    width: 80%;
+  }
 }

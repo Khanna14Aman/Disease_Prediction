@@ -10,6 +10,10 @@ import {
   USER_UPDATE_REQUEST,
   USER_UPDATE_SUCCESS,
   USER_REGISTER_LOGOUT,
+  USER_LOGIN_FAIL_RESET,
+  USER_REGISTER_FAIL_RESET,
+  USER_UPDATE_SUCCESS_RESET,
+  USER_UPDATE_FAIL_RESET,
 } from "../constants/constants";
 
 export const userLoginReducer = (state = {}, action) => {
@@ -21,6 +25,8 @@ export const userLoginReducer = (state = {}, action) => {
     case USER_LOGIN_FAIL:
       return { loading: false, error: action.payload };
     case USER_LOGOUT:
+      return {};
+    case USER_LOGIN_FAIL_RESET:
       return {};
     default:
       return state;
@@ -37,6 +43,8 @@ export const userRegisterReducer = (state = {}, action) => {
       return { loading: false, error: action.payload };
     case USER_REGISTER_LOGOUT:
       return {};
+    case USER_REGISTER_FAIL_RESET:
+      return {};
     default:
       return state;
   }
@@ -50,6 +58,10 @@ export const userUpdateReducer = (state = {}, action) => {
       return { loading: false, userInfo: action.payload, success: true };
     case USER_UPDATE_FAIL:
       return { loading: false, error: action.payload, success: false };
+    case USER_UPDATE_SUCCESS_RESET:
+      return { userInfo: action.payload };
+    case USER_UPDATE_FAIL_RESET:
+      return {};
     default:
       return state;
   }

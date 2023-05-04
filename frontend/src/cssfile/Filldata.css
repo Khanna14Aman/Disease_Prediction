@@ -1,14 +1,9 @@
-.navbar {
-  background-color: rgba(215, 208, 201, 0.215);
-  padding: 0;
-  display: flex;
-  justify-content: left;
-}
 .Resultdiv {
   height: 10vh;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 10px;
+  /* font-size: 3vh; */
   /* background-color: blue; */
 }
