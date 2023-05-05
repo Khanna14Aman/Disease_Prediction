@@ -62,7 +62,6 @@ const SideBar = ({ setSideBar }) => {
             <strong>Logout</strong>
           </Button>
         </div>
-        {/* <div>SideBar</div> */}
       </div>
     </>
   );

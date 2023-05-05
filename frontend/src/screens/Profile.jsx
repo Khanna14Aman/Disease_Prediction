@@ -33,7 +33,6 @@ const Profile = () => {
       setName(userInfo.name);
       setEmail(userInfo.email);
       setPic(userInfo.pic);
-      // console.log(userIn fo.pic);
     }
   }, [navigate, userInfo]);
   const preset_key = "disease_prediction";
@@ -53,7 +52,6 @@ const Profile = () => {
     if (pics.type === "image/jpeg" || pics.type === "image/png") {
       const formData = new FormData();
       formData.append("file", pics);
-      console.log("1");
       formData.append("upload_preset", preset_key);
       axios
         .post(

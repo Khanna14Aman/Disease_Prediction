@@ -4,20 +4,6 @@
 .forgot {
   color: balck;
 }
-/* .register-div-main {
-  display: flex;
-  justify-content: space-between;
-}
-.register-div-1 {
-  width: 50vw;
-}
-.register-div-2 {
-  width: 60%;
-  display: flex;
-  align-items: center;
-  padding: 20px;
-  /* height: 30vh; */
-/* width: 40vw; */
 .profilePic {
   width: 60%;
   display: flex;
@@ -30,7 +16,6 @@
 @keyframes profile-pic-slider {
   0% {
     width: 0%;
-    /* height: 0%; */
   }
   100% {
     width: 60%;

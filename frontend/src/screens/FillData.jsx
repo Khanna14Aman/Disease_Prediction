@@ -284,7 +284,6 @@ const FillData = () => {
   const [showdata, setshowdata] = useState(true);
   const [error, seterror] = useState("");
   const [loading, setloading] = useState(false);
-  // const dispatch = useDispatch();
   const navigate = useNavigate();
   const UserLogin = useSelector((state) => state.userLogin);
   const { userInfo } = UserLogin;
@@ -313,7 +312,6 @@ const FillData = () => {
       setresult(data.data);
       setshowdata(true);
     } catch (err) {
-      console.log(err);
       seterror(err);
       setshowdata(false);
       setloading(false);

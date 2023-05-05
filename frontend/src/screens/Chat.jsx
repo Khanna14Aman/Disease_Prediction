@@ -77,18 +77,15 @@ const Chat = () => {
           Authorization: `Bearer ${userInfo.token}`,
         },
       };
-      // console.log(AllUser);
       var { data } = await axios.get("/chat", config);
       const arr = Array();
       for (var value of data) {
         for (var val of value.users) {
           if (val._id !== userInfo._id) {
-            // console.log(val);
             arr.push(val);
           }
         }
       }
-      // console.log(arr);
       var allIds = Array();
       for (var value of arr) {
         allIds.push(value._id.toString());
@@ -98,11 +95,6 @@ const Chat = () => {
         return !allIds.includes(value._id.toString());
       });
 
-      // for (var value of AllUser) {
-      //   console.log(allIds.includes(value._id.toString()));
-      // }
-      // console.log(rest);
-      // console.log(AllUser);
       var UserOrder = Array();
       for (var value of arr) {
         UserOrder.push(value);
@@ -110,6 +102,7 @@ const Chat = () => {
       for (var value of rest) {
         UserOrder.push(value);
       }
+
       setAllUser(UserOrder);
       setError(false);
     } catch (error) {
@@ -193,7 +186,6 @@ const Chat = () => {
       const { data } = await axios.post("/chat", { userId }, config);
       setSelectChat(data);
     } catch (error) {
-      console.log("here");
       window.alert(error.response.data.message);
     }
   };
@@ -223,21 +215,13 @@ const Chat = () => {
 
   useEffect(() => {
     socket.on("message recieved", (newMessageRecieved) => {
-      // console.log("admin");
-      // console.log(selectedChatCompare);
-      // console.log(newMessageRecieved);
       setDoSort(!doSort);
       if (
         !selectedChatCompare || // if chat is not selected or doesn't match current chat
         selectedChatCompare._id !== newMessageRecieved.chat._id
       ) {
-        // console.log("admin1");
-        // if (!notification.includes(newMessageRecieved)) {
-        //   setNotification([newMessageRecieved, ...notification]);
-        //   setFetchAgain(!fetchAgain);
-        // }
+        // nothing
       } else {
-        // console.log("admin2");
         setAllMessage([...allmessage, newMessageRecieved]);
       }
     });

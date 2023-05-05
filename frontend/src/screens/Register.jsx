@@ -42,7 +42,6 @@ const Register = () => {
     if (pics.type === "image/jpeg" || pics.type === "image/png") {
       const formData = new FormData();
       formData.append("file", pics);
-      console.log("1");
       formData.append("upload_preset", preset_key);
       axios
         .post(

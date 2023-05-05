@@ -18,7 +18,6 @@ const Header = ({ setSearchValue }) => {
           onClick={() => setSideBar(true)}
         />
         <input
-          // style={{ height: "5vh", width: "15vw", fontSize: "3vh"  }}
           autoComplete="off"
           type="text"
           placeholder="search"
