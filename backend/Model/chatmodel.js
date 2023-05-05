@@ -12,6 +12,22 @@ const chatSchema = mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "Message",
     },
+    lastUpdate: {
+      type: Number,
+      default: 0,
+    },
+    pendingView: [
+      {
+        user: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "UserData",
+        },
+        value: {
+          type: Number,
+          default: 0,
+        },
+      },
+    ],
   },
   {
     timestamps: true,
