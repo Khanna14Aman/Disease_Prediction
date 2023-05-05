@@ -19,10 +19,30 @@ const SideBar = ({ setSideBar }) => {
         <CIcon
           className="back-icon"
           icon={cilArrowThickLeft}
-          height={"3vh"}
-          width={"3vh"}
+          height={20}
+          width={20}
           onClick={() => setSideBar(false)}
         />
+
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <Button
+            variant="outline-secondary"
+            style={{ border: "none", width: "100%", fontSize: "3vh" }}
+            onClick={() => navigate("/filldata")}
+          >
+            <strong>CheckUp</strong>
+          </Button>
+        </div>
+
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <Button
+            variant="outline-secondary"
+            style={{ border: "none", width: "100%", fontSize: "3vh" }}
+            onClick={() => navigate("/chat")}
+          >
+            <strong>Chat</strong>
+          </Button>
+        </div>
         <div style={{ display: "flex", justifyContent: "center" }}>
           <Button
             variant="outline-secondary"
@@ -32,6 +52,7 @@ const SideBar = ({ setSideBar }) => {
             <strong>Update Profile</strong>
           </Button>
         </div>
+
         <div style={{ display: "flex", justifyContent: "center" }}>
           <Button
             variant="outline-secondary"

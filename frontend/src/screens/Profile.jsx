@@ -7,6 +7,7 @@ import Loading from "../components/Loading";
 import { updateProfile } from "../actions/useractions";
 import "../cssfile/Profile.css";
 import axios from "axios";
+import Header from "../components/Header";
 
 const Profile = () => {
   const [name, setName] = useState("");
@@ -83,6 +84,7 @@ const Profile = () => {
   };
   return (
     <>
+      <Header />
       <Row className="profileContainer">
         <Col md={6}>
           <Form onSubmit={submitHandler}>

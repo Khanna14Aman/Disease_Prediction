@@ -13,8 +13,8 @@ const Header = ({ setSearchValue }) => {
         <CIcon
           className="menuIcon"
           icon={cilAlignLeft}
-          height={"3vh"}
-          width={"3vh"}
+          height={20}
+          width={20}
           onClick={() => setSideBar(true)}
         />
         <input

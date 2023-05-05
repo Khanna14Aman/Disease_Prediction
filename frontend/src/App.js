@@ -8,6 +8,7 @@ import Forgot from "./screens/Forgot";
 import FillData from "./screens/FillData";
 import Profile from "./screens/Profile";
 import ErrorMessage from "./components/Error";
+import Chat from "./screens/Chat";
 function App() {
   return (
     <>
@@ -19,6 +20,7 @@ function App() {
           <Route exact path="/register" element={<Register />} />
           <Route exact path="/forgot" element={<Forgot />} />
           <Route exact path="/filldata" element={<FillData />} />
+          <Route exact path="/chat" element={<Chat />} />
           <Route
             exact
             path="/*"

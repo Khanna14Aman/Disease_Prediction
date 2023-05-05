@@ -8,6 +8,7 @@ const {
   changePassword,
   seeresult,
   verifyotpregister,
+  allUsers,
 } = require("../Controllers/usercontrollers");
 const protect = require("../middleware/usermiddleware");
 router.route("/").post(registeruser);
@@ -17,5 +18,6 @@ router.route("/verify").post(verifyotp);
 router.route("/changepassword").post(changePassword);
 router.route("/seeresult").post(seeresult);
 router.route("/verify/otpregister").post(verifyotpregister);
+router.route("/getalluser").get(protect, allUsers);
 
 module.exports = router;
