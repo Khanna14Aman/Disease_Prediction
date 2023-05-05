@@ -15,6 +15,7 @@ import Header from "../components/Header";
 var socket, selectedChatCompare;
 
 const Chat = () => {
+  const [doSort, setDoSort] = useState(true);
   const [searchValue, setSearchValue] = useState("");
 
   const widthMatch = useMediaQuery("(min-width:768px)");
@@ -58,6 +59,7 @@ const Chat = () => {
           }
         })
       );
+      setDoSort(!doSort);
     } catch (error) {
       setError(error.response.data.message);
     }
@@ -120,7 +122,7 @@ const Chat = () => {
     if (AllUser.length > 0) {
       selectUser();
     }
-  }, [AllUser]);
+  }, [doSort]);
 
   // for sending message..
 
@@ -147,7 +149,7 @@ const Chat = () => {
       );
       socket.emit("new message", data);
       setAllMessage([...allmessage, data]);
-      GetAllUser();
+      setDoSort(!doSort);
     } catch (error) {
       window.alert(error.response.data.message);
     }
@@ -221,21 +223,21 @@ const Chat = () => {
 
   useEffect(() => {
     socket.on("message recieved", (newMessageRecieved) => {
-      console.log("admin");
-      console.log(selectedChatCompare);
-      console.log(newMessageRecieved);
-      GetAllUser();
+      // console.log("admin");
+      // console.log(selectedChatCompare);
+      // console.log(newMessageRecieved);
+      setDoSort(!doSort);
       if (
         !selectedChatCompare || // if chat is not selected or doesn't match current chat
         selectedChatCompare._id !== newMessageRecieved.chat._id
       ) {
-        console.log("admin1");
+        // console.log("admin1");
         // if (!notification.includes(newMessageRecieved)) {
         //   setNotification([newMessageRecieved, ...notification]);
         //   setFetchAgain(!fetchAgain);
         // }
       } else {
-        console.log("admin2");
+        // console.log("admin2");
         setAllMessage([...allmessage, newMessageRecieved]);
       }
     });
