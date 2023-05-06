@@ -47,6 +47,19 @@ const sendMessage = asyncHandler(async (req, res) => {
       lastUpdate: Date.now(),
     });
 
+    // if sending message then increase the pendingView of person to whom we sent message
+    var updateView = await Chat.findById({ _id: chatId });
+    var previousValue = 0;
+    if (updateView.pendingView[0].user.toString() !== req.user._id.toString()) {
+      previousValue = updateView.pendingView[0].value;
+      updateView.pendingView[0].value = previousValue + 1;
+    } else {
+      previousValue = updateView.pendingView[1].value;
+      updateView.pendingView[1].value = previousValue + 1;
+    }
+
+    await updateView.save();
+
     res.json(message);
   } catch (error) {
     res.status(400);

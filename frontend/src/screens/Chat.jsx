@@ -69,7 +69,7 @@ const Chat = () => {
   }, []);
 
   // sorting user according to ascesding order of chat with them
-
+  const [view, setView] = useState({});
   const selectUser = async () => {
     try {
       const config = {
@@ -86,6 +86,22 @@ const Chat = () => {
           }
         }
       }
+      var v = {};
+      for (var value of data) {
+        var key;
+        var valu;
+        for (var val of value.pendingView) {
+          if (val.user.toString() !== userInfo._id.toString()) {
+            key = val.user.toString();
+          } else {
+            valu = val.value;
+          }
+        }
+        if (valu > 0) {
+          v[key] = valu;
+        }
+      }
+      setView(v);
       var allIds = Array();
       for (var value of arr) {
         allIds.push(value._id.toString());
@@ -142,6 +158,7 @@ const Chat = () => {
       );
       socket.emit("new message", data);
       setAllMessage([...allmessage, data]);
+      // getallmessage(chatId);
       setDoSort(!doSort);
     } catch (error) {
       window.alert(error.response.data.message);
@@ -201,6 +218,9 @@ const Chat = () => {
   const bottomRef = useRef(null);
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "auto" });
+    if (selectedChat) {
+      setZero(selectedChat._id);
+    }
   }, [allmessage]);
 
   // connecting socket to backend
@@ -210,6 +230,26 @@ const Chat = () => {
     socket.emit("setup", userInfo);
     socket.on("connected", () => setSocketConnected(true));
   }, []);
+
+  // set pending views to zero for particular chat id.
+
+  const setZero = async (chatId) => {
+    try {
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${userInfo.token}`,
+        },
+      };
+      const { data } = await axios.put("/chat/setZero", { chatId }, config);
+      console.log("done");
+
+      // when we see message and set pending view to 0 now fetch again
+      selectUser();
+    } catch (error) {
+      window.alert(error.response.data.message);
+    }
+  };
 
   // What to do when user recieved any message from any user.
 
@@ -223,6 +263,7 @@ const Chat = () => {
         // nothing
       } else {
         setAllMessage([...allmessage, newMessageRecieved]);
+        // getallmessage(newMessageRecieved.chat._id);
       }
     });
   });
@@ -276,7 +317,19 @@ const Chat = () => {
                     <Col>
                       <Row md={1} lg={1} sm={1} style={{ paddingTop: "1vh" }}>
                         <Col>
-                          <strong>{value.name}</strong>
+                          <strong>
+                            {value.name}
+                            {view && view[value._id.toString()] && (
+                              <span
+                                style={{
+                                  marginLeft: "1px",
+                                  color: "lightgreen",
+                                }}
+                              >
+                                {view[value._id.toString()]}
+                              </span>
+                            )}
+                          </strong>
                         </Col>
                         <Col>{value.email}</Col>
                       </Row>

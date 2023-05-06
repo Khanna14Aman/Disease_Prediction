@@ -27,6 +27,12 @@ const accessChat = asyncHandler(async (req, res) => {
   } else {
     var chatData = {
       users: [req.user._id, userId],
+      pendingView: [
+        {
+          user: req.user._id,
+        },
+        { user: userId },
+      ],
     };
     const createdChat = await Chat.create(chatData);
     const FullChat = await Chat.findOne({ _id: createdChat._id }).populate(
@@ -60,4 +66,25 @@ const fetchChats = asyncHandler(async (req, res) => {
   }
 });
 
-module.exports = { accessChat, fetchChats };
+// setting our pendingView to 0 for particular chat because we seen all message
+const setPendingViewZero = asyncHandler(async (req, res) => {
+  const { chatId } = req.body;
+  if (!chatId) {
+    throw new Error("Please provide ChatId");
+  }
+
+  var setView = await Chat.findById({ _id: chatId });
+  if (!setView) {
+    throw new Error("Chat not found");
+  }
+
+  if (setView.pendingView[0].user.toString() === req.user._id.toString()) {
+    setView.pendingView[0].value = 0;
+  } else {
+    setView.pendingView[1].value = 0;
+  }
+  await setView.save();
+  res.json({ message: "done" });
+});
+
+module.exports = { accessChat, fetchChats, setPendingViewZero };
